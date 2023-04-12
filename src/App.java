@@ -26,9 +26,23 @@ public class App {
     return res;
   }
 
+  /*
+   * 1) input opeand string
+   * 2) iterate over operand
+   * 2.1)check char is number by comparing to ascii
+   * 2.1.1) if is not number return false
+   * 
+   * 
+   */
   public static boolean isNumeric(String operand) {
     // TODO: implement the method.
 
+    for (int i = 0; i < operand.length(); i++) {
+      char c = operand.charAt(i);
+      if (!(c <= '9' && c >= '0') && !(c == '.')) {
+        return false;
+      }
+    }
     return true;
   }
 
@@ -38,7 +52,7 @@ public class App {
     if (operand.charAt(0) == '-') {
       return true;
     }
-    
+
     return false;
   }
 
@@ -73,17 +87,17 @@ public class App {
   public static void main(String[] args) {
     System.out.println("Hello World.");
 
-    // double result = App.evaluate("55");
-    // System.out.println(result == 55);
+    double result = App.evaluate("55");
+    System.out.println(result == 55);
 
-    // double result1 = App.evaluate("01");
-    // System.out.println(result1 == 1);
+    double result1 = App.evaluate("01");
+    System.out.println(result1 == 1);
 
-    // double result2 = App.evaluate("1.09");
-    // System.out.println(result2 == 1.09);
+    double result2 = App.evaluate("1.09");
+    System.out.println(result2 == 1.09);
 
-    // double result3 = App.evaluate("-1");
-    // System.out.println(result3 == -1);
+    double result3 = App.evaluate("-1");
+    System.out.println(result3 == -1);
 
     boolean b1 = App.isNumeric("1");
     System.out.println(b1 == true);
@@ -96,6 +110,9 @@ public class App {
 
     boolean b4 = App.isNumeric("x^2");
     System.out.println(b4 == false);
+
+    boolean b5 = App.isNumeric("1.09");
+    System.out.println(b5 == true);
   }
 
   // public static char findChar(char number , )
